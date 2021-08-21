@@ -2,3 +2,4 @@
 
 tools/*.wasm
 basic/*.wasm
+multifunc/*.wasm
