@@ -3,3 +3,5 @@
 tools/*.wasm
 basic/*.wasm
 multifunc/*.wasm
+
+js/node_modules
