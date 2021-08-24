@@ -1,14 +1,17 @@
 package main
 
 import (
+	"embed"
 	"fmt"
-	"io/ioutil"
 
 	wasmer "github.com/wasmerio/wasmer-go/wasmer"
 )
 
+//go:embed multi.wasm
+var f embed.FS
+
 func main() {
-	wasmBytes, _ := ioutil.ReadFile("multi.wasm")
+	wasmBytes, _ := f.ReadFile("multi.wasm")
 
 	engine := wasmer.NewEngine()
 	store := wasmer.NewStore(engine)
