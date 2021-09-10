@@ -3,5 +3,6 @@
 tools/*.wasm
 basic/*.wasm
 multifunc/*.wasm
+wasm-text/*.wasm
 
 js/node_modules
