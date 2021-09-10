@@ -2,7 +2,10 @@
 
 tools/*.wasm
 basic/*.wasm
-multifunc/*.wasm
+
+go-runtime/*.wasm
+go-runtime/go-wasm
+
 wasm-text/*.wasm
 
 js/node_modules

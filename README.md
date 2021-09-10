@@ -1,6 +1,6 @@
 # Overview
 
-A collection of projects to demonstrate the inner workings of Webassembly
+A collection of projects to demonstrate the inner workings of WebAssembly (WASM)
 
 ## Prerequisite
 
@@ -10,17 +10,8 @@ On macOS, you can use Homebrew. Run this command `brew install wabt`.
 
 ## Projects
 
-* [Using WebAssembly text format](./wasm-text)
-
-### Basic
-
-A simple set up to demonstrate ruuning wasm. 
-
-Wassembly text syntax is [here]
-
-### multifunc
-
-Example of complex Wasm text and embedding Go
+* [Using WebAssembly text format](./wasm-text). Examples of WASM text based codes.
+* [Go-runtime examples](./go-runtime). Example using Go WASM runtime engine.
 
 ## Disclaimer
 
