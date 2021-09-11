@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node pub/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "wasm": "./op.sh"
   },
-  "author": "",
-  "license": "ISC",
+  "engines": {
+    "node": ">=10.16.3",
+    "npm": "7.23.0"
+  },
+  "author": "Paul Sitoh",
+  "license": "Apache-2.0",
   "dependencies": {
     "webassembly": "^0.11.0"
   }

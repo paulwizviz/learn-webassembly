@@ -1,11 +1,9 @@
 .DS_Store
 
-tools/*.wasm
-basic/*.wasm
 
 go-runtime/*.wasm
 go-runtime/go-wasm
 
 wasm-text/*.wasm
 
-js/node_modules
+js-runtime/node_modules
