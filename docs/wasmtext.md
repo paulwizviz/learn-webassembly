@@ -1,20 +1,34 @@
 # Using WebAssembly text format
 
-This project use text format, in the form of [S-expression](https://developer.mozilla.org/en-US/docs/WebAssembly/Understanding_the_text_format#s-expressions), as a representation of the WASM binary format. 
+This project use text format, in the form of [S-expression](https://developer.mozilla.org/en-US/docs/WebAssembly/Understanding_the_text_format#s-expressions), as a representation of the Wasm binary format. 
 
-## WASM Text files
+## Prerequisite
 
-You can find examples of WASM text files in the folder [./wasm-text](../wasm-text) and these are:
+* Knowledge of Wasm text.
 
-* [./wasm-text/simple.wat](../wasm-text/simple.wat). This is the simplest and smallest WASM text file with only a module declared. For detail explanation of the working of the text please refer to the [official documentation](https://developer.mozilla.org/en-US/docs/WebAssembly/Understanding_the_text_format#the_simplest_module).
+* Install [WABT: The WebAssembly Binary Toolkit](https://github.com/WebAssembly/wabt).
 
-* [./wasm-text/math.wat](../wasm-text/math.wat). This WASM text file representing a mathematical operation to add two numbers. The operation named `add` is exported to be consumed by other components such as, Javascript. Please refer to the [official documentation](https://developer.mozilla.org/en-US/docs/WebAssembly/Understanding_the_text_format#our_first_function_body) for detail explanation of the working of the code.
+## Project content
 
-* [./wam-text/addmultiply.wat](../wasm-text/addmultiply.wat). This is an extension of [./wasm-text/math.wat](../wasm-text/math.wat) demonstrating multiple WASM functions call each other. This WASM text performs a two step operation: 1) it adds to numbers, 2) multiply the result of the addition by a factor of 10.
+Please refer to this folder [./wasm-text](../wasm-text) for content.
 
-## Compile the WASM text to binary
+The items of interest to you are:
 
-Assuming you have already installed WABT, please follow these steps to compile the example WASM text file:
+* [./wasm-text/simple.wat](../wasm-text/simple.wat). This is the simplest and smallest Wasm text file with only a module declared. For detail explanation of the working of the text please refer to the [official documentation](https://developer.mozilla.org/en-US/docs/WebAssembly/Understanding_the_text_format#the_simplest_module).
+
+* [./wasm-text/math.wat](../wasm-text/math.wat). This Wasm text file representing a mathematical operation to add two numbers. The operation named `add` is exported to be consumed by other components such as, Javascript. Please refer to the [official documentation](https://developer.mozilla.org/en-US/docs/WebAssembly/Understanding_the_text_format#our_first_function_body) for detail explanation of the working of the code.
+
+* [./wam-text/addmultiply.wat](../wasm-text/addmultiply.wat). This is an extension of [./wasm-text/math.wat](../wasm-text/math.wat) demonstrating multiple Wasm functions call each other. This Wasm text performs a two step operation: 1) it adds to numbers, 2) multiply the result of the addition by a factor of 10.
+
+## How to use this project
+
+1) Compile Wasm text to binary
+
+2) Inspecting Wasm binary file *.wasm
+
+<u>1. Compile Wasm text to binary</u>
+
+Assuming you have already installed WABT, please follow these steps to compile the example Wasm text file:
 
 STEP 1: Open a bash shell.
 
@@ -66,17 +80,17 @@ options:
       --no-check                               Don't check for invalid modules
 ```
 
-NOTE:
+Note:
 
-> If you wish to see WASM in assembly representation, run the command `wat2wasm` with the `-v` option set. For example, when you run the command `wat2wasm simple.wat -v`, you will see an output like this:
->```
->0000000: 0061 736d                                 ; WASM_BINARY_MAGIC
->0000004: 0100 0000                                 ; WASM_BINARY_VERSION
->```
+If you wish to see Wasm in assembly representation, run the command `wat2wasm` with the `-v` option set. For example, when you run the command `wat2wasm simple.wat -v`, you will see an output like this:
+```
+0000000: 0061 736d                                 ; WASM_BINARY_MAGIC
+0000004: 0100 0000                                 ; WASM_BINARY_VERSION
+```
 
-## Inspecting the WASM binary file *.wasm
+<u>2. Inspecting Wasm binary file *.wasm</u>
 
-You can use Linux tools such as `od` (octal dump) or `xxd` (to get a hexdump) of WASM binary.
+You can use Linux tools such as `od` (octal dump) or `xxd` (to get a hexdump) of Wasm binary.
 
 Alternatively, use WABT cli tool `wasm-objdump` as per this format:
 
@@ -100,17 +114,19 @@ options:
   -r, --reloc                  Show relocations inline with disassembly
 ```
 
-For example, running this command `wasm-objdump -d math.wasm` produces this output:
+Note:
+
+To disassembly Wasm binary, use this command `wasm-objdump -d math.wasm`. You will see this output:
 
 ```
 math.wasm:      file format wasm 0x1
 
 Code Disassembly:
 
-000022 func[0] <add>:
+ 000022 func[0] <add>:
  000023: 20 00                      | local.get 0
  000025: 20 01                      | local.get 1
  000027: 6a                         | i32.add
  000028: 0b                         | end
-```
+ ```
 

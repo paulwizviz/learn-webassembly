@@ -2,7 +2,7 @@
 
 wat2wasm math.wat -v
 if [ ! -f math.wasm ]; then
-    echo "WASM binary not found"
+    echo "Wasm binary not found"
     exit 0
 fi
 
