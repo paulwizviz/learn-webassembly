@@ -1,13 +1,15 @@
 #!/bin/bash
 
-wat2wasm math.wat -v
-if [ ! -f math.wasm ]; then
-    echo "Wasm binary not found"
-    exit 0
-fi
+COMMAND=$1
 
-if [ -f ./pub/math.wasm ]; then
-    rm -f ./pub/math.wasm
-fi
-
-mv math.wasm ./pub/math.wasm
+case $COMMAND in
+    compile)
+        wat2wasm math.wat -v
+        ;;
+    run)
+        node index.js
+        ;;
+    *)
+        echo "Usage: $0 compile | run"
+        ;;
+esac

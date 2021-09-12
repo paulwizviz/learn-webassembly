@@ -6,4 +6,4 @@ go-runtime/go-wasm
 
 wasm-text/*.wasm
 
-js-runtime/node_modules
+js-runtime/*.wasm

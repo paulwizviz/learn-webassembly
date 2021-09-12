@@ -16,21 +16,20 @@ The items of interest to you are:
 
 * [./js-runtime/math.wat](../js-runtime/math.wat) contains Wasm text representing a simple math operation to add two numbers and exporting the operation as a function call `add`.
 
-* [./js-runtime/pub/index.js](../js-runtime/pub/index.js) implements a logic to load `math.wasm`, generated from `math.wat`, and the call the Wasm exported funcion named `add`.
+* [./js-runtime/index.js](../js-runtime/index.js) implements a logic to load `math.wasm`, generated from `math.wat`, and the call the Wasm exported funcion named `add`.
 
-* [./js-runtime/package.json] an `npm` configuration script.
+* [./js-runtime/op.sh] a bash script to help you work with this project.
 
 ## How to use this project
 
 STEP 1 - Navigate to the foler [./js-runtime](../js-runtime).
 
-STEP 2 - Run the command `npm run wasm` and this will generate `math.wasm` in [./js-runtime/pub/math.wasm](../js-runtime/pub/math.wasm).
+STEP 2 - Run the command `op.sh compile` to generate `math.wasm` from `math.wat`.
 
-STEP 3 - Run the command `npm start` and, this will execute [./js-runtime/pub/index.js](../js-runtime/pub/index.js) and [./js-runtime/pub/math.wasm](../js-runtime/pub/math.wasm).
-
+STEP 3 - Run the command `op.sh run` to execute `index.js`
 
 ## Note
 
-* The runtime in this context is NodeJS based, which is not the same as the one found in Browsers.
+* The runtime in this project is NodeJS based, from the one found in Browsers.
 
-* A number of sources suggest official support for Wasm is available for Node v8 onwards.
+* Official support for Wasm is available for Node v8 onwards.
